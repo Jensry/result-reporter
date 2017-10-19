@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Motionsserien Badminton</title>
+    <!--link rel="stylesheet" type="text/css" href="result.css"/-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+
+    
+    <div id="app">
+        <div class="container">
+            <form>
+                <h3>Match</h3>
+                <div class="container">
+                    <div class="form-group">
+                        <select class="form-control" id="match">
+                            <option>Välj match...</option>
+                            <option v-for="match in matches">
+                                {{ match.matchnumber }}: {{ match.hometeam }} - {{ match.awayteam }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <h3>Dubbel</h3>
+                <div class="container bg-light py-2 my-2">
+                    <div class="form-group">
+                        <label for="doublesplayer1home">Hemmaspelare 1</label>
+                        <select class="form-control" id="doublesplayer1home">
+                            <option>Välj spelare...</option>
+                            <option v-for="team in teams">
+                                {{ team.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="doublesplayer2home">Hemmaspelare 2</label>
+                        <select class="form-control" id="doublesplayer2home">
+                            <option>Välj spelare...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container bg-light py-2 my-2">
+                    <div class="form-group">
+                        <label for="doublesplayer1away">Bortaspelare 1</label>
+                        <select class="form-control" id="doublesplayer1away">
+                            <option>Välj spelare...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="doublesplayer2away">Bortaspelare 2</label>
+                        <select class="form-control" id="doublesplayer2away">
+                            <option>Välj spelare...</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Skicka in</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://unpkg.com/vuefire@1.3.0"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    
+    <script type="text/javascript" src="result.js"></script>
+
+
+</body>
+</html>
