@@ -11,26 +11,22 @@ var config = {
   };
   firebase.initializeApp(config);
 
-
-var teamsRef = firebase.database().ref('teams')
-var matchesRef = firebase.database().ref('matches')
-
 // create Vue app
 var app = new Vue({
   // element to mount to
   el: '#app',
   // initial data
   data: {
-    newUser: {
-      name: '',
-      email: ''
-    }
+    selectedmatch: ''
   },
   // firebase binding
   // https://github.com/vuejs/vuefire
   firebase: {
-    teams: teamsRef,
-    matches: matchesRef
+    teams: {
+        source: firebase.database().ref('teams'),
+        asObject: true
+    },
+    matches: firebase.database().ref('matches')
   },
   // computed property for form validation state
   computed: {

@@ -16,47 +16,104 @@
                 <h3>Match</h3>
                 <div class="container">
                     <div class="form-group">
-                        <select class="form-control" id="match">
-                            <option>Välj match...</option>
-                            <option v-for="match in matches">
+                        <select class="form-control" v-model="selectedmatch" id="match">
+                            <option value="">Välj match...</option>
+                            <option v-for="match in matches" v-bind:value="match">
                                 {{ match.matchnumber }}: {{ match.hometeam }} - {{ match.awayteam }}
                             </option>
                         </select>
                     </div>
                 </div>
-                <h3>Dubbel</h3>
-                <div class="container bg-light py-2 my-2">
-                    <div class="form-group">
-                        <label for="doublesplayer1home">Hemmaspelare 1</label>
-                        <select class="form-control" id="doublesplayer1home">
-                            <option>Välj spelare...</option>
-                            <option v-for="team in teams">
-                                {{ team.name }}
-                            </option>
-                        </select>
+                <div v-if="selectedmatch !== ''">
+                    <h4>Dubbel</h4>
+                    <div class="container bg-light py-2 my-2">
+                        <div class="form-group">
+                            <label for="doublesplayer1home">Hemmaspelare 1</label>
+                            <select class="form-control" id="doublesplayer1home">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.hometeam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doublesplayer2home">Hemmaspelare 2</label>
+                            <select class="form-control" id="doublesplayer2home">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.hometeam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="doublesplayer2home">Hemmaspelare 2</label>
-                        <select class="form-control" id="doublesplayer2home">
-                            <option>Välj spelare...</option>
-                        </select>
+                    <div class="container bg-light py-2 my-2">
+                        <div class="form-group">
+                            <label for="doublesplayer1away">Bortaspelare 1</label>
+                            <select class="form-control" id="doublesplayer1away">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.awayteam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doublesplayer2away">Bortaspelare 2</label>
+                            <select class="form-control" id="doublesplayer2away">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.awayteam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
                     </div>
+                    <h4>Singel 1</h4>
+                    <div class="container bg-light py-2 my-2">
+                        <div class="form-group">
+                            <label for="singlesplayer1home">Hemmaspelare</label>
+                            <select class="form-control" id="singlesplayer1home">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.hometeam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container bg-light py-2 my-2">
+                        <div class="form-group">
+                            <label for="singlesplayer1away">Bortaspelare</label>
+                            <select class="form-control" id="singlesplayer1away">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.awayteam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <h4>Singel 2</h4>
+                    <div class="container bg-light py-2 my-2">
+                        <div class="form-group">
+                            <label for="singlesplayer2home">Hemmaspelare</label>
+                            <select class="form-control" id="singlesplayer2home">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.hometeam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container bg-light py-2 my-2">
+                        <div class="form-group">
+                            <label for="singlesplayer2away">Bortaspelare</label>
+                            <select class="form-control" id="singlesplayer2away">
+                                <option value="">Välj spelare...</option>
+                                <option v-for="member in teams[selectedmatch.awayteam].members">
+                                    {{ member }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Skicka in</button>
                 </div>
-                <div class="container bg-light py-2 my-2">
-                    <div class="form-group">
-                        <label for="doublesplayer1away">Bortaspelare 1</label>
-                        <select class="form-control" id="doublesplayer1away">
-                            <option>Välj spelare...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="doublesplayer2away">Bortaspelare 2</label>
-                        <select class="form-control" id="doublesplayer2away">
-                            <option>Välj spelare...</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Skicka in</button>
             </form>
         </div>
     </div>
