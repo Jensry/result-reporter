@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
     <title>Motionsserien Badminton</title>
-    <!--link rel="stylesheet" type="text/css" href="result.css"/-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="result.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
-
-    
     <div id="app">
         <div class="container">
             <form>
                 <h3>Match</h3>
                 <div class="container">
                     <div class="form-group">
-                        <select class="form-control" v-model="selectedmatch" id="match">
+                        <select class="form-control input-lg" v-model="selectedmatch" id="match">
                             <option value="">Välj match...</option>
                             <option v-for="match in matches" v-bind:value="match">
                                 {{ match.matchnumber }}: {{ match.hometeam }} - {{ match.awayteam }}
@@ -26,7 +23,7 @@
                 </div>
                 <div v-if="selectedmatch !== ''">
                     <h4>Dubbel</h4>
-                    <div class="container bg-light py-2 my-2">
+                    <div class="container">
                         <div class="form-group">
                             <label for="doublesplayer1home">Hemmaspelare 1</label>
                             <select class="form-control" id="doublesplayer1home">
@@ -46,7 +43,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="container bg-light py-2 my-2">
+                    <div class="container">
                         <div class="form-group">
                             <label for="doublesplayer1away">Bortaspelare 1</label>
                             <select class="form-control" id="doublesplayer1away">
@@ -67,7 +64,7 @@
                         </div>
                     </div>
                     <h4>Singel 1</h4>
-                    <div class="container bg-light py-2 my-2">
+                    <div class="container">
                         <div class="form-group">
                             <label for="singlesplayer1home">Hemmaspelare</label>
                             <select class="form-control" id="singlesplayer1home">
@@ -78,7 +75,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="container bg-light py-2 my-2">
+                    <div class="container">
                         <div class="form-group">
                             <label for="singlesplayer1away">Bortaspelare</label>
                             <select class="form-control" id="singlesplayer1away">
@@ -90,7 +87,7 @@
                         </div>
                     </div>
                     <h4>Singel 2</h4>
-                    <div class="container bg-light py-2 my-2">
+                    <div class="container">
                         <div class="form-group">
                             <label for="singlesplayer2home">Hemmaspelare</label>
                             <select class="form-control" id="singlesplayer2home">
@@ -101,7 +98,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="container bg-light py-2 my-2">
+                    <div class="container">
                         <div class="form-group">
                             <label for="singlesplayer2away">Bortaspelare</label>
                             <select class="form-control" id="singlesplayer2away">

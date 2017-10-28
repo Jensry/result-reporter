@@ -1,0 +1,7 @@
+{
+  "name": "result-reporter",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2"
+  }
+}
