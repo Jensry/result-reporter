@@ -27,7 +27,7 @@
                     <select class="form-control input-lg select-top" v-model="selectedmatch" id="match">
                         <option value="">Välj match...</option>
                         <option v-for="match in selecteddiv.matches" v-bind:value="match">
-                            {{ match.matchnumber }}: {{ match.hometeam }} - {{ match.awayteam }}
+                            {{ match.matchnumber }}: {{ selecteddiv.teams[match.hometeam].name }} - {{ match.awayteam }}
                         </option>
                     </select>
                 </div>
