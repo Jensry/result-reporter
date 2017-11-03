@@ -2,6 +2,7 @@
   "name": "result-reporter",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "firebase-admin": "^5.4.3"
   }
 }
