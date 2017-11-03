@@ -48,7 +48,7 @@ var app = new Vue({
       resultsRef.push({
         'timestamp': firebase.database.ServerValue.TIMESTAMP,
         'division': this.selecteddiv.divid,
-        'matchNumber': this.selectedmatch.matchnumber,
+        'matchId': this.selectedmatch.matchid,
         'doublesPlayerHome1': this.doublesplayer1home,
         'doublesPlayerHome2': this.doublesplayer2home,
         'doublesPlayerAway1': this.doublesplayer1away,
