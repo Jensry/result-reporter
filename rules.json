@@ -1,0 +1,148 @@
+{
+  "rules": {
+    "divisions": {
+      ".read": "true",
+      "$other": {
+        ".validate": false
+      }
+    },
+    "results": {
+      "$result_id": {
+        "timestamp": {
+          ".validate": "newData.val() == now",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "division": {
+          ".validate": "root.child('divisions').child(newData.val()).exists()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "matchId": {
+          ".validate": "root.child('divisions').child(newData.parent().child('division').val()).child('matches').child(newData.val()).exists()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesPlayerHome1": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesPlayerHome2": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesPlayerAway1": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesPlayerAway2": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesSet1": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesSet2": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesSet3": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singlesPlayer1Home": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singlesPlayer1Away": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles1Set1": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles1Set2": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles1Set3": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singlesPlayer2Home": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singlesPlayer2Away": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles2Set1": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles2Set2": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles2Set3": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "matchResult": {
+          ".validate": "newData.isString()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        ".write": "data.val() == null && newData.exists()",
+        ".validate": "newData.hasChildren(['timestamp', 'division', 'matchId', 'doublesPlayerHome1', 'doublesPlayerHome2', 'doublesPlayerAway1', 'doublesPlayerAway2', 'doublesSet1', 'doublesSet2', 'doublesSet3', 'singlesPlayer1Home', 'singlesPlayer1Away', 'singles1Set1', 'singles1Set2', 'singles1Set3', 'singlesPlayer2Home', 'singlesPlayer2Away', 'singles2Set1', 'singles2Set2', 'singles2Set3', 'matchResult'])",
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "$other": {
+      ".validate": false
+    }
+  }
+}

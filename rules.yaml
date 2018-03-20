@@ -1,0 +1,34 @@
+functions:
+  - homeTeam(matchId): root.matches[matchId].hometeam
+  - awayTeam(matchId): root.matches[matchId].awayteam
+  - validHomeName(matchId, name): root.teams[homeTeam(matchId)].members[name].exists()
+  - validAwayName(matchId, name): root.teams[awayTeam(matchId)].members[name].exists()
+  - matchId: newData.parent().matchId
+
+root:
+  divisions:
+    .read: true
+  results:
+    $result_id:
+      .write: data == null && newData.exists()
+      timestamp: required newData == now
+      division: required root.divisions[newData].exists()
+      matchId: required root.divisions[newData.parent().division].matches[newData].exists()
+      doublesPlayerHome1: required string
+      doublesPlayerHome2: required string
+      doublesPlayerAway1: required string
+      doublesPlayerAway2: required string
+      doublesSet1: required string
+      doublesSet2: required string
+      doublesSet3: required string
+      singlesPlayer1Home: required string
+      singlesPlayer1Away: required string
+      singles1Set1: required string
+      singles1Set2: required string
+      singles1Set3: required string
+      singlesPlayer2Home: required string
+      singlesPlayer2Away: required string
+      singles2Set1: required string
+      singles2Set2: required string
+      singles2Set3: required string
+      matchResult: required string
