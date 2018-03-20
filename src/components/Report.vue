@@ -28,43 +28,33 @@
 
             <legend>Dubbel</legend>
 
-            <div class="form-group">
-                <label for="doublesplayer1home">Hemmaspelare 1</label>
-                <select class="form-control" id="doublesplayer1home" v-model="doublesplayer1home">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.hometeam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="doublesplayer2home">Hemmaspelare 2</label>
-                <select class="form-control" id="doublesplayer2home" v-model="doublesplayer2home">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.hometeam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
+            <player-name-input 
+                v-model="doublesplayer1home" 
+                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+                label="Hemmaspelare 1"
+                id="doublesplayer1home"
+            ></player-name-input>
 
-            <div class="form-group">
-                <label for="doublesplayer1away">Bortaspelare 1</label>
-                <select class="form-control" id="doublesplayer1away" v-model="doublesplayer1away">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.awayteam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="doublesplayer2away">Bortaspelare 2</label>
-                <select class="form-control" id="doublesplayer2away" v-model="doublesplayer2away">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.awayteam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
+            <player-name-input 
+                v-model="doublesplayer2home" 
+                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+                label="Hemmaspelare 2"
+                id="doublesplayer2home"
+            ></player-name-input>
+
+            <player-name-input 
+                v-model="doublesplayer1away" 
+                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+                label="Bortaspelare 1"
+                id="doublesplayer1away"
+            ></player-name-input>
+
+            <player-name-input 
+                v-model="doublesplayer2away" 
+                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+                label="Bortaspelare 2"
+                id="doublesplayer2away"
+            ></player-name-input>
 
             <div class="row">
                 <div class="col-sm-9 col-md-6">
@@ -86,27 +76,20 @@
 
             <hr />
 
-
             <legend>Singel 1</legend>
-            <div class="form-group">
-                <label for="singlesplayer1home">Hemmaspelare</label>
-                <select class="form-control" id="singlesplayer1home" v-model="singlesplayer1home">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.hometeam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
+            <player-name-input 
+                v-model="singlesplayer1home" 
+                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+                label="Hemmaspelare"
+                id="singlesplayer1home"
+            ></player-name-input>
 
-            <div class="form-group">
-                <label for="singlesplayer1away">Bortaspelare</label>
-                <select class="form-control" id="singlesplayer1away" v-model="singlesplayer1away">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.awayteam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
+            <player-name-input 
+                v-model="singlesplayer1away" 
+                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+                label="Bortaspelare"
+                id="singlesplayer1away"
+            ></player-name-input>
 
             <div class="row">
                 <div class="col-sm-9 col-md-6">
@@ -129,24 +112,19 @@
             <hr />
 
             <legend>Singel 2</legend>
-            <div class="form-group">
-                <label for="singlesplayer2home">Hemmaspelare</label>
-                <select class="form-control" id="singlesplayer2home" v-model="singlesplayer2home">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.hometeam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="singlesplayer2away">Bortaspelare</label>
-                <select class="form-control" id="singlesplayer2away" v-model="singlesplayer2away">
-                    <option value="">Välj spelare...</option>
-                    <option v-for="member in selecteddiv.teams[selectedmatch.awayteam].members" v-bind:key="member.id">
-                        {{ member }}
-                    </option>
-                </select>
-            </div>
+            <player-name-input 
+                v-model="singlesplayer2home" 
+                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+                label="Hemmaspelare"
+                id="singlesplayer2home"
+            ></player-name-input>
+
+            <player-name-input 
+                v-model="singlesplayer2away" 
+                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+                label="Bortaspelare"
+                id="singlesplayer2away"
+            ></player-name-input>
 
             <div class="row">
                 <div class="col-sm-9 col-md-6">
@@ -180,6 +158,7 @@
 
 <script>
 import firebase from 'firebase'
+import PlayerNameInput from '@/components/PlayerNameInput'
 
 // Initialize Firebase
 var config = {
@@ -201,10 +180,9 @@ var divisionsRef = db.ref('divisions');
 var resultsRef = db.ref('results');
 
 export default {
-  name: 'HelloWorld',
+  name: 'Report',
   data: function() {
     return {
-      //divisions: firebase.database().ref('divisions'),
       selecteddiv: '',
       selectedmatch: '',
       doublesplayer1home: '',
@@ -256,6 +234,9 @@ export default {
         'matchResult': this.matchresult
       });
     }
+  },
+  components: {
+      PlayerNameInput
   }
 }
 </script>
