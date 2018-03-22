@@ -1,13 +1,15 @@
 <template>
-    <div class="form-group">
-        <label :for="id">{{ label }}</label>
-        <select class="form-control" :id="id" v-on:input="updateValue($event.target.value)">
+    <b-field :label="label">
+        <b-select v-model="value" expanded>
             <option value="">Välj spelare...</option>
-            <option v-for="player in players" v-bind:key="player.id">
+            <option
+                v-for="player in players"
+                :value="player"
+                :key="player">
                 {{ player }}
             </option>
-        </select>
-    </div>
+        </b-select>
+    </b-field>
 </template>
 
 <script>

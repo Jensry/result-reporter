@@ -18,7 +18,4 @@ export default {
   color: #2c3e50;
   margin-top: 40px;
 }
-.logo {
-  margin-bottom: 40px;
-}
 </style>

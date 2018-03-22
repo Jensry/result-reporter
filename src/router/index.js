@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Report from '@/components/Report'
-import firebase from 'firebase'
 
 Vue.use(Router)
 

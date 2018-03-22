@@ -1,32 +1,35 @@
 <template>
-    <form class="container main-form" id="form" novalidate v-on:submit.prevent="postResult">
-        <h2>Division</h2>
-        <div>
-            <select class="form-control input-lg select-top" v-model="selecteddiv" id="division">
-                <option value="">Välj division...</option>
-                <option v-for="division in divisions" v-bind:value="division" v-bind:key="division.id">
-                    {{ division.divname }}
-                </option>
-            </select>
-        </div>
+    <section class="section">
+    <form id="form" v-on:submit.prevent="postResult">
+        <h1 class="title">Division</h1>
+        <b-select v-model="selecteddiv" class="select-top" size="is-medium" expanded>
+            <option value="">Välj division...</option>
+            <option
+                v-for="division in divisions"
+                :value="division"
+                :key="division.id">
+                {{ division.divname }}
+            </option>
+        </b-select>
 
         <div v-if="selecteddiv !== ''">
             <hr class="hr-first" />
-            <h2>Match</h2>
-            <div>
-                <select class="form-control input-lg select-top" v-model="selectedmatch" id="match">
-                    <option value="">Välj match...</option>
-                    <option v-for="match in selecteddiv.matches" v-bind:value="match" v-bind:key="match.id">
-                        {{ match.matchnumber }}: {{ selecteddiv.teams[match.hometeam].name }} - {{ selecteddiv.teams[match.awayteam].name }}
-                    </option>
-                </select>
-            </div>
+            <h1 class="title">Match</h1>
+            <b-select v-model="selectedmatch" class="select-top" expanded>
+                <option value="">Välj match...</option>
+                <option
+                    v-for="match in selecteddiv.matches"
+                    :value="match"
+                    :key="match.id">
+                    {{ match.matchnumber }}: {{ selecteddiv.teams[match.hometeam].name }} - {{ selecteddiv.teams[match.awayteam].name }}
+                </option>
+            </b-select>
         </div>
 
         <div v-if="selectedmatch !== ''">
             <hr class="hr-first" />
 
-            <legend>Dubbel</legend>
+            <div class="title is-4">Dubbel</div>
 
             <player-name-input 
                 v-model="doublesplayer1home" 
@@ -62,21 +65,29 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" name="doublesset1" placeholder="Set 1" v-model="doublesset1" v-validate="{ required: true, regex: /^([0-9][0-9]?-[0-9][0-9]?)$/ }">
+            <div class="columns">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="doublesset1" placeholder="Set 1" v-model="doublesset1">
+                    </b-input>
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" name="doublesset2" placeholder="Set 2" v-model="doublesset2">
+                <div class="column">
+                    <b-input type="tel"
+                        name="doublesset2"
+                        placeholder="Set 2"
+                        v-model="doublesset2"
+                        pattern="[0-9][0-9]?-[0-9][0-9]?"
+                        title="Resultat för set 2">
+                    </b-input>
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" name="doublesset3" placeholder="Set 3" v-model="doublesset3">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="doublesset3" placeholder="Set 3" v-model="doublesset3">
+                    </b-input>
                 </div>
             </div>
 
             <hr />
 
-            <legend>Singel 1</legend>
+            <div class="title is-4">Singel 1</div>
             <player-name-input 
                 v-model="singlesplayer1home" 
                 v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
@@ -97,21 +108,24 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" id="singles1set1" placeholder="Set 1" v-model="singles1set1">
+            <div class="columns">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="singles1set1" placeholder="Set 1" v-model="singles1set1">
+                    </b-input>
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" id="singles1set2" placeholder="Set 2" v-model="singles1set2">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="singles1set2" placeholder="Set 2" v-model="singles1set2">
+                    </b-input>
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" id="singles1set3" placeholder="Set 3" v-model="singles1set3">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="singles1set3" placeholder="Set 3" v-model="singles1set3">
+                    </b-input>
                 </div>
             </div>
 
             <hr />
 
-            <legend>Singel 2</legend>
+            <div class="title is-4">Singel 2</div>
             <player-name-input 
                 v-model="singlesplayer2home" 
                 v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
@@ -132,28 +146,31 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" id="singles2set1" placeholder="Set 1" v-model="singles2set1">
+            <div class="columns">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="singles2set1" placeholder="Set 1" v-model="singles2set1">
+                    </b-input>
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" id="singles2set2" placeholder="Set 2" v-model="singles2set2">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="singles2set2" placeholder="Set 2" v-model="singles2set2">
+                    </b-input>
                 </div>
-                <div class="col-xs-4 col-sm-3 col-md-2 form-group">
-                    <input type="tel" class="form-control" id="singles2set3" placeholder="Set 3" v-model="singles2set3">
+                <div class="column">
+                    <b-input type="tel" class="form-control" name="singles2set3" placeholder="Set 3" v-model="singles2set3">
+                    </b-input>
                 </div>
             </div>
 
             <hr />
 
-            <legend>Matchresultat</legend>
-            <div class="form-group">
-                <input type="tel" class="form-control" id="matchresult" v-model="matchresult" placeholder="Ange totalt resultat">
-            </div>
+            <div class="title is-4">Matchresultat</div>
+            <b-input type="tel" class="form-control" name="matchresult" placeholder="Ange totalt resultat" v-model="matchresult">
+            </b-input>
 
-            <button type="submit" class="btn btn-primary btn-lg btn-block button-submit">Skicka in</button>
+            <button type="submit" class="button is-medium is-primary button-submit">Skicka in</button>
         </div>
     </form>
+    </section>
 </template>
 
 <script>
@@ -242,7 +259,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
 
 .button-submit {
   margin-top: 30px;
@@ -257,8 +274,8 @@ hr {
   margin-top: 0;
 }
 
-select.select-top {
-  padding: 6px 0px;
+.select-top select {
+  padding-left: 5px;
   height: 40px;
   background-color: transparent;
   border: none;
@@ -267,7 +284,7 @@ select.select-top {
   font-weight: 600;
 }
 
-select.select-top:focus {
+.select-top select:focus {
   outline: none;
   box-shadow: none;
 }
