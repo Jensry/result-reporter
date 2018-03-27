@@ -1,14 +1,13 @@
 <template>
     <b-field :label="label">
-        <b-select v-model="value" expanded>
-            <option value="">Välj spelare...</option>
-            <option
-                v-for="player in players"
-                :value="player"
-                :key="player">
-                {{ player }}
-            </option>
-        </b-select>
+        <span class="select is-fullwidth">
+            <select :id="id" v-on:input="onInput($event.target.value)">
+                <option value="">Välj spelare...</option>
+                <option v-for="player in players" v-bind:key="player.id">
+                    {{ player }}
+                </option>
+            </select>
+        </span>
     </b-field>
 </template>
 
@@ -17,14 +16,13 @@
 export default {
   name: 'PlayerNameInput',
   props: {
-      value: String,
       label: String,
       id: String,
       players: Array
   },
   methods: {
-    updateValue(value) {
-        this.$emit('input', value);
+    onInput(inputValue) {
+        this.$emit('input', inputValue);
     }
   }
 }
