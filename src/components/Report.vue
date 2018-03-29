@@ -62,23 +62,21 @@
             <label class="label">Resultat</label>
 
             <div class="columns">
-                <div class="column">
-                    <b-input type="tel" name="doublesset1" placeholder="Set 1" v-model="doublesset1">
-                    </b-input>
-                </div>
-                <div class="column">
-                    <b-input type="tel"
-                        name="doublesset2"
-                        placeholder="Set 2"
-                        v-model="doublesset2"
-                        pattern="[0-9][0-9]?-[0-9][0-9]?"
-                        title="Resultat för set 2">
-                    </b-input>
-                </div>
-                <div class="column">
-                    <b-input type="tel" name="doublesset3" placeholder="Set 3" v-model="doublesset3">
-                    </b-input>
-                </div>
+                <set-result 
+                    v-model=doublesset1
+                    title="Resultat för set 1"
+                    placeholder="Set 1"
+                ></set-result>
+                <set-result 
+                    v-model=doublesset2
+                    title="Resultat för set 2"
+                    placeholder="Set 2"
+                ></set-result>
+                <set-result 
+                    v-model=doublesset3
+                    title="Resultat för set 3"
+                    placeholder="Set 3"
+                ></set-result>
             </div>
 
             <hr />
@@ -101,18 +99,21 @@
             <label class="label">Resultat</label>
 
             <div class="columns">
-                <div class="column">
-                    <b-input type="tel" name="singles1set1" placeholder="Set 1" v-model="singles1set1">
-                    </b-input>
-                </div>
-                <div class="column">
-                    <b-input type="tel" name="singles1set2" placeholder="Set 2" v-model="singles1set2">
-                    </b-input>
-                </div>
-                <div class="column">
-                    <b-input type="tel" name="singles1set3" placeholder="Set 3" v-model="singles1set3">
-                    </b-input>
-                </div>
+                <set-result 
+                    v-model=singles1set1
+                    title="Resultat för set 1"
+                    placeholder="Set 1"
+                ></set-result>
+                <set-result 
+                    v-model=singles1set2
+                    title="Resultat för set 2"
+                    placeholder="Set 2"
+                ></set-result>
+                <set-result 
+                    v-model=singles1set3
+                    title="Resultat för set 3"
+                    placeholder="Set 3"
+                ></set-result>
             </div>
 
             <hr />
@@ -135,18 +136,21 @@
             <label class="label">Resultat</label>
 
             <div class="columns">
-                <div class="column">
-                    <b-input type="tel" name="singles2set1" placeholder="Set 1" v-model="singles2set1">
-                    </b-input>
-                </div>
-                <div class="column">
-                    <b-input type="tel" name="singles2set2" placeholder="Set 2" v-model="singles2set2">
-                    </b-input>
-                </div>
-                <div class="column">
-                    <b-input type="tel" name="singles2set3" placeholder="Set 3" v-model="singles2set3">
-                    </b-input>
-                </div>
+                <set-result 
+                    v-model=singles2set1
+                    title="Resultat för set 1"
+                    placeholder="Set 1"
+                ></set-result>
+                <set-result 
+                    v-model=singles2set2
+                    title="Resultat för set 2"
+                    placeholder="Set 2"
+                ></set-result>
+                <set-result 
+                    v-model=singles2set3
+                    title="Resultat för set 3"
+                    placeholder="Set 3"
+                ></set-result>
             </div>
 
             <hr />
@@ -164,6 +168,7 @@
 <script>
 import firebase from 'firebase'
 import PlayerNameInput from '@/components/PlayerNameInput'
+import SetResult from '@/components/SetResult'
 
 // Initialize Firebase
 var config = {
@@ -241,7 +246,8 @@ export default {
     }
   },
   components: {
-      PlayerNameInput
+      PlayerNameInput,
+      SetResult
   }
 }
 </script>
