@@ -61,22 +61,64 @@
 
             <label class="label">Resultat</label>
 
-            <div class="columns">
-                <set-result 
-                    v-model=doublesset1
-                    title="Resultat för set 1"
-                    placeholder="Set 1"
-                ></set-result>
-                <set-result 
-                    v-model=doublesset2
-                    title="Resultat för set 2"
-                    placeholder="Set 2"
-                ></set-result>
-                <set-result 
-                    v-model=doublesset3
-                    title="Resultat för set 3"
-                    placeholder="Set 3"
-                ></set-result>
+            <div class="columns is-8 is-variable">
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="doublesset1Home"
+                                title="Resultat för set 1"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="doublesset1Away"
+                                title="Resultat för set 1"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="doublesset2Home"
+                                title="Resultat för set 2"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="doublesset2Away"
+                                title="Resultat för set 2"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="doublesset3Home"
+                                title="Resultat för set 3"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="doublesset3Away"
+                                title="Resultat för set 3"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <hr />
@@ -98,22 +140,64 @@
 
             <label class="label">Resultat</label>
 
-            <div class="columns">
-                <set-result 
-                    v-model=singles1set1
-                    title="Resultat för set 1"
-                    placeholder="Set 1"
-                ></set-result>
-                <set-result 
-                    v-model=singles1set2
-                    title="Resultat för set 2"
-                    placeholder="Set 2"
-                ></set-result>
-                <set-result 
-                    v-model=singles1set3
-                    title="Resultat för set 3"
-                    placeholder="Set 3"
-                ></set-result>
+            <div class="columns is-8 is-variable">
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="singles1set1Home"
+                                title="Resultat för set 1"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="singles1set1Away"
+                                title="Resultat för set 1"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="singles1set2Home"
+                                title="Resultat för set 2"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="singles1set2Away"
+                                title="Resultat för set 2"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="singles1set3Home"
+                                title="Resultat för set 3"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="singles1set3Away"
+                                title="Resultat för set 3"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <hr />
@@ -135,22 +219,64 @@
 
             <label class="label">Resultat</label>
 
-            <div class="columns">
-                <set-result 
-                    v-model=singles2set1
-                    title="Resultat för set 1"
-                    placeholder="Set 1"
-                ></set-result>
-                <set-result 
-                    v-model=singles2set2
-                    title="Resultat för set 2"
-                    placeholder="Set 2"
-                ></set-result>
-                <set-result 
-                    v-model=singles2set3
-                    title="Resultat för set 3"
-                    placeholder="Set 3"
-                ></set-result>
+            <div class="columns is-8 is-variable">
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="singles2set1Home"
+                                title="Resultat för set 1"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="singles2set1Away"
+                                title="Resultat för set 1"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="singles2set2Home"
+                                title="Resultat för set 2"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="singles2set2Away"
+                                title="Resultat för set 2"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns is-1 is-variable is-mobile">
+                        <div class="column">
+                            <set-result 
+                                v-model="singles2set3Home"
+                                title="Resultat för set 3"
+                                placeholder="Hemma"
+                            ></set-result>
+                        </div>
+                        <div class="column is-narrow is-vertical-center">-</div>
+                        <div class="column">
+                            <set-result 
+                                v-model="singles2set3Away"
+                                title="Resultat för set 3"
+                                placeholder="Borta"
+                            ></set-result>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <hr />
@@ -166,9 +292,9 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-import PlayerNameInput from '@/components/PlayerNameInput'
-import SetResult from '@/components/SetResult'
+import firebase from "firebase";
+import PlayerNameInput from "@/components/PlayerNameInput";
+import SetResult from "@/components/SetResult";
 
 // Initialize Firebase
 var config = {
@@ -186,74 +312,82 @@ firebase.database.enableLogging(function(message) {
   console.log("[FIREBASE]", message);
 });
 
-var divisionsRef = db.ref('divisions');
-var resultsRef = db.ref('results');
+var divisionsRef = db.ref("divisions");
+var resultsRef = db.ref("results");
 
 export default {
-  name: 'Report',
+  name: "Report",
   data: function() {
     return {
-      selecteddiv: '',
-      selectedmatch: '',
-      doublesplayer1home: '',
-      doublesplayer2home: '',
-      doublesplayer1away: '',
-      doublesplayer2away: '',
-      doublesset1: '',
-      doublesset2: '',
-      doublesset3: '',
-      singlesplayer1home: '',
-      singlesplayer1away: '',
-      singles1set1: '',
-      singles1set2: '',
-      singles1set3: '',
-      singlesplayer2home: '',
-      singlesplayer2away: '',
-      singles2set1: '',
-      singles2set2: '',
-      singles2set3: '',
-      matchresult: ''
-    }
+      selecteddiv: "",
+      selectedmatch: "",
+      doublesplayer1home: "",
+      doublesplayer2home: "",
+      doublesplayer1away: "",
+      doublesplayer2away: "",
+      doublesset1Home: "",
+      doublesset2Home: "",
+      doublesset3Home: "",
+      doublesset1Away: "",
+      doublesset2Away: "",
+      doublesset3Away: "",
+      singlesplayer1home: "",
+      singlesplayer1away: "",
+      singles1set1Home: "",
+      singles1set2Home: "",
+      singles1set3Home: "",
+      singles1set1Away: "",
+      singles1set2Away: "",
+      singles1set3Away: "",
+      singlesplayer2home: "",
+      singlesplayer2away: "",
+      singles2set1Home: "",
+      singles2set2Home: "",
+      singles2set3Home: "",
+      singles2set1Away: "",
+      singles2set2Away: "",
+      singles2set3Away: "",
+      matchresult: ""
+    };
   },
   firebase: {
     divisions: divisionsRef
   },
   methods: {
-    postResult: function () {
+    postResult: function() {
       resultsRef.push({
-        'timestamp': firebase.database.ServerValue.TIMESTAMP,
-        'division': this.selecteddiv.divid,
-        'matchId': this.selectedmatch.matchid,
-        'doublesPlayerHome1': this.doublesplayer1home,
-        'doublesPlayerHome2': this.doublesplayer2home,
-        'doublesPlayerAway1': this.doublesplayer1away,
-        'doublesPlayerAway2': this.doublesplayer2away,
-        'doublesSet1': this.doublesset1,
-        'doublesSet2': this.doublesset2,
-        'doublesSet3': this.doublesset3,
-        'singlesPlayer1Home': this.singlesplayer1home,
-        'singlesPlayer1Away': this.singlesplayer1away,
-        'singles1Set1': this.singles1set1,
-        'singles1Set2': this.singles1set2,
-        'singles1Set3': this.singles1set3,
-        'singlesPlayer2Home': this.singlesplayer2home,
-        'singlesPlayer2Away': this.singlesplayer2away,
-        'singles2Set1': this.singles2set1,
-        'singles2Set2': this.singles2set2,
-        'singles2Set3': this.singles2set3,
-        'matchResult': this.matchresult
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
+        division: this.selecteddiv.divid,
+        matchId: this.selectedmatch.matchid,
+        doublesPlayerHome1: this.doublesplayer1home,
+        doublesPlayerHome2: this.doublesplayer2home,
+        doublesPlayerAway1: this.doublesplayer1away,
+        doublesPlayerAway2: this.doublesplayer2away,
+        doublesSet1: this.doublesset1Home + '-' + this.doublesset1Away,
+        doublesSet2: this.doublesset2Home + '-' + this.doublesset2Away,
+        doublesSet3: this.doublesset3Home + '-' + this.doublesset3Away,
+        singlesPlayer1Home: this.singlesplayer1home,
+        singlesPlayer1Away: this.singlesplayer1away,
+        singles1Set1: this.singles1set1Home + '-' + this.singles1set1Away,
+        singles1Set2: this.singles1set2Home + '-' + this.singles1set2Away,
+        singles1Set3: this.singles1set3Home + '-' + this.singles1set3Away,
+        singlesPlayer2Home: this.singlesplayer2home,
+        singlesPlayer2Away: this.singlesplayer2away,
+        singles2Set1: this.singles2set1Home + '-' + this.singles2set1Away,
+        singles2Set2: this.singles2set2Home + '-' + this.singles2set2Away,
+        singles2Set3: this.singles2set3Home + '-' + this.singles2set3Away,
+        matchResult: this.matchresult
       });
     }
   },
   components: {
-      PlayerNameInput,
-      SetResult
+    PlayerNameInput,
+    SetResult
   }
-}
+};
 </script>
 
 <style lang="scss">
-
 .button-submit {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -282,4 +416,9 @@ hr {
   box-shadow: none;
 }
 
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
