@@ -1,11 +1,14 @@
 <template>
-    <b-input type="number"
-        :placeholder="placeholder"
-        :value="value"
-        @input="onInput"
-        pattern="[0-9][0-9]?"
-        :title="title">
-    </b-input>
+    <b-field>
+        <b-input type="number"
+            :placeholder="placeholder"
+            :value="value"
+            @input="onInput"
+            min="0"
+            max="30"
+            :title="title">
+        </b-input>
+    </b-field>
 </template>
 
 <script>
