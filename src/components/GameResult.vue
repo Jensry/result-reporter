@@ -1,33 +1,31 @@
 <template>
-  <section class="section">
-    <div class="columns">
-      <div class="column">
-        <game-result-input
-          heading="Set 1"
-          @input="(value) => onInput('setOne', value)"
-        >
-        </game-result-input>
-      </div>
-      <div class="column">
-        <game-result-input
-          heading="Set 2"
-          @input="(value) => onInput('setTwo', value)"
-        >
-        </game-result-input>
-      </div>
-      <div class="column">
-        <game-result-input
-          heading="Set 3"
-          @input="(value) => onInput('setThree', value)"
-        >
-        </game-result-input>
-      </div>
+  <div class="columns is-8 is-variable">
+    <div class="column">
+      <set-result
+        heading="Set 1"
+        @input="(value) => onInput('setOne', value)"
+      >
+      </set-result>
     </div>
-  </section>
+    <div class="column">
+      <set-result
+        heading="Set 2"
+        @input="(value) => onInput('setTwo', value)"
+      >
+      </set-result>
+    </div>
+    <div class="column">
+      <set-result
+        heading="Set 3"
+        @input="(value) => onInput('setThree', value)"
+      >
+      </set-result>
+    </div>
+  </div>
 </template>
 
 <script>
-import GameResultInput from "./GameResultInput";
+import SetResult from "./SetResult";
 
 export default {
   name: "GameResult",
@@ -46,7 +44,7 @@ export default {
       this.$emit('input', this.result);
     },
   },
-  components: {GameResultInput}
+  components: {SetResult}
 }
 </script>
 
