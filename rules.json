@@ -26,6 +26,12 @@
             ".validate": false
           }
         },
+        "matchNumber": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
         "doublesPlayerHome1": {
           ".validate": "newData.isString()",
           "$other": {
@@ -50,20 +56,38 @@
             ".validate": false
           }
         },
-        "doublesSet1": {
-          ".validate": "newData.isString()",
+        "doublesSet1Home": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
         },
-        "doublesSet2": {
-          ".validate": "newData.isString()",
+        "doublesSet1Away": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
         },
-        "doublesSet3": {
-          ".validate": "newData.isString()",
+        "doublesSet2Home": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesSet2Away": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesSet3Home": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "doublesSet3Away": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
@@ -80,20 +104,38 @@
             ".validate": false
           }
         },
-        "singles1Set1": {
-          ".validate": "newData.isString()",
+        "singles1Set1Home": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
         },
-        "singles1Set2": {
-          ".validate": "newData.isString()",
+        "singles1Set1Away": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
         },
-        "singles1Set3": {
-          ".validate": "newData.isString()",
+        "singles1Set2Home": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles1Set2Away": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles1Set3Home": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles1Set3Away": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
@@ -110,20 +152,38 @@
             ".validate": false
           }
         },
-        "singles2Set1": {
-          ".validate": "newData.isString()",
+        "singles2Set1Home": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
         },
-        "singles2Set2": {
-          ".validate": "newData.isString()",
+        "singles2Set1Away": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
         },
-        "singles2Set3": {
-          ".validate": "newData.isString()",
+        "singles2Set2Home": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles2Set2Away": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles2Set3Home": {
+          ".validate": "newData.isNumber()",
+          "$other": {
+            ".validate": false
+          }
+        },
+        "singles2Set3Away": {
+          ".validate": "newData.isNumber()",
           "$other": {
             ".validate": false
           }
@@ -135,11 +195,12 @@
           }
         },
         ".write": "data.val() == null && newData.exists()",
-        ".validate": "newData.hasChildren(['timestamp', 'division', 'matchId', 'doublesPlayerHome1', 'doublesPlayerHome2', 'doublesPlayerAway1', 'doublesPlayerAway2', 'doublesSet1', 'doublesSet2', 'doublesSet3', 'singlesPlayer1Home', 'singlesPlayer1Away', 'singles1Set1', 'singles1Set2', 'singles1Set3', 'singlesPlayer2Home', 'singlesPlayer2Away', 'singles2Set1', 'singles2Set2', 'singles2Set3', 'matchResult'])",
+        ".validate": "newData.hasChildren(['timestamp', 'division', 'matchId', 'matchNumber', 'doublesPlayerHome1', 'doublesPlayerHome2', 'doublesPlayerAway1', 'doublesPlayerAway2', 'doublesSet1Home', 'doublesSet1Away', 'doublesSet2Home', 'doublesSet2Away', 'doublesSet3Home', 'doublesSet3Away', 'singlesPlayer1Home', 'singlesPlayer1Away', 'singles1Set1Home', 'singles1Set1Away', 'singles1Set2Home', 'singles1Set2Away', 'singles1Set3Home', 'singles1Set3Away', 'singlesPlayer2Home', 'singlesPlayer2Away', 'singles2Set1Home', 'singles2Set1Away', 'singles2Set2Home', 'singles2Set2Away', 'singles2Set3Home', 'singles2Set3Away', 'matchResult'])",
         "$other": {
           ".validate": false
         }
-      }
+      },
+      ".read": "true"
     },
     "$other": {
       ".validate": false

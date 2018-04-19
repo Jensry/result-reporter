@@ -9,26 +9,37 @@ root:
   divisions:
     .read: true
   results:
+    .read: true
     $result_id:
       .write: data == null && newData.exists()
       timestamp: required newData == now
       division: required root.divisions[newData].exists()
       matchId: required root.divisions[newData.parent().division].matches[newData].exists()
+      matchNumber: required number
       doublesPlayerHome1: required string
       doublesPlayerHome2: required string
       doublesPlayerAway1: required string
       doublesPlayerAway2: required string
-      doublesSet1: required string
-      doublesSet2: required string
-      doublesSet3: required string
+      doublesSet1Home: required number
+      doublesSet1Away: required number
+      doublesSet2Home: required number
+      doublesSet2Away: required number
+      doublesSet3Home: required number
+      doublesSet3Away: required number
       singlesPlayer1Home: required string
       singlesPlayer1Away: required string
-      singles1Set1: required string
-      singles1Set2: required string
-      singles1Set3: required string
+      singles1Set1Home: required number
+      singles1Set1Away: required number
+      singles1Set2Home: required number
+      singles1Set2Away: required number
+      singles1Set3Home: required number
+      singles1Set3Away: required number
       singlesPlayer2Home: required string
       singlesPlayer2Away: required string
-      singles2Set1: required string
-      singles2Set2: required string
-      singles2Set3: required string
+      singles2Set1Home: required number
+      singles2Set1Away: required number
+      singles2Set2Home: required number
+      singles2Set2Away: required number
+      singles2Set3Home: required number
+      singles2Set3Away: required number
       matchResult: required string

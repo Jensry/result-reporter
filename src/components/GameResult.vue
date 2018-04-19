@@ -3,21 +3,21 @@
     <div class="column">
       <set-result
         heading="Set 1"
-        @input="(value) => onInput('setOne', value)"
+        @input="(value) => onInput('set1', value)"
       >
       </set-result>
     </div>
     <div class="column">
       <set-result
         heading="Set 2"
-        @input="(value) => onInput('setTwo', value)"
+        @input="(value) => onInput('set2', value)"
       >
       </set-result>
     </div>
     <div class="column">
       <set-result
         heading="Set 3"
-        @input="(value) => onInput('setThree', value)"
+        @input="(value) => onInput('set3', value)"
       >
       </set-result>
     </div>
@@ -32,9 +32,9 @@ export default {
   data() {
     return {
       result: {
-        setOne: {home: '', away: ''},
-        setTwo: {home: '', away: ''},
-        setThree: {home: '', away: ''},
+        set1: {home: '', away: ''},
+        set2: {home: '', away: ''},
+        set3: {home: '', away: ''},
       },
     };
   },
