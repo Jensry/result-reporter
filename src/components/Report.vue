@@ -198,7 +198,7 @@ export default {
         singles2Set3Home: Number(this.singles2Result.set3.home),
         singles2Set3Away: Number(this.singles2Result.set3.away),
         matchResult: this.matchresult
-      });
+      }, () => this.$router.push({ name: 'Confirmation'}));
     }
   },
   components: {
