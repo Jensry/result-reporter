@@ -10,7 +10,8 @@
             v-model="home"
             @input="onInput"
             min="0"
-            max="30">
+            max="30"
+            :required="required ? true : false">
           </b-input>
         </b-field>
       </div>
@@ -25,7 +26,8 @@
             v-model="away"
             @input="onInput"
             min="0"
-            max="30">
+            max="30"
+            :required="required ? true : false">
           </b-input>
         </b-field>
       </div>
@@ -41,6 +43,9 @@ export default {
       type: String,
       default: () => '',
     },
+    required: {
+      type: Boolean
+    }
   },
   data() {
     return {

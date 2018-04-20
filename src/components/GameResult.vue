@@ -3,6 +3,7 @@
     <div class="column">
       <set-result
         heading="Set 1"
+        :required="true"
         @input="(value) => onInput('set1', value)"
       >
       </set-result>
@@ -10,6 +11,7 @@
     <div class="column">
       <set-result
         heading="Set 2"
+        :required="true"
         @input="(value) => onInput('set2', value)"
       >
       </set-result>
