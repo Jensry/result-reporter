@@ -11,7 +11,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "assets/bkc-styles";
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
