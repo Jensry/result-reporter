@@ -4,4 +4,6 @@
 $primary: #00aade;
 $primary-invert: findColorInvert($primary);
 
+$modal-content-width: 500px;
+
 @import "~bulma";

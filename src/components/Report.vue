@@ -1,6 +1,6 @@
 <template>
     <section class="section">
-    <form id="form" v-on:submit.prevent="postResult">
+    <form id="form" @submit.prevent="confirm">
         <h1 class="title">Division</h1>
         <b-select v-model="selecteddiv" class="select-top" size="is-medium" expanded>
             <option value="">Välj division...</option>
@@ -112,6 +112,17 @@
             </b-input>
 
             <button type="submit" class="button is-medium is-primary button-submit">Skicka in</button>
+
+            <confirm-modal 
+                v-if="showConfirm" 
+                @cancel="cancel"
+                @ok="postResult"
+                :homeTeam="selectedmatch.hometeam"
+                :awayTeam="selectedmatch.awayteam"
+                :doublesResult="doublesResult"
+                :singlesOneResult="singles1Result"
+                :singlesTwoResult="singles2Result"
+            ></confirm-modal>
         </div>
     </form>
     </section>
@@ -121,6 +132,7 @@
 import firebase from "firebase";
 import PlayerNameInput from "@/components/PlayerNameInput";
 import GameResult from "@/components/GameResult";
+import ConfirmModal from '@/components/ConfirmModal';
 
 // Initialize Firebase
 var config = {
@@ -158,14 +170,15 @@ export default {
       singlesplayer2home: "",
       singlesplayer2away: "",
       singles2Result: {},
-      matchresult: ""
+      matchresult: "",
+      showConfirm: false
     };
   },
   firebase: {
     divisions: divisionsRef
   },
   methods: {
-    postResult: function() {
+    postResult() {
       resultsRef.push({
         timestamp: firebase.database.ServerValue.TIMESTAMP,
         division: this.selecteddiv.divid,
@@ -199,11 +212,18 @@ export default {
         singles2Set3Away: Number(this.singles2Result.set3.away),
         matchResult: this.matchresult
       }, () => this.$router.push({ name: 'Confirmation'}));
+    },
+    confirm() {
+        this.showConfirm = true;
+    },
+    cancel() {
+        this.showConfirm = false;
     }
   },
   components: {
     PlayerNameInput,
-    GameResult
+    GameResult,
+    ConfirmModal
   }
 };
 </script>
