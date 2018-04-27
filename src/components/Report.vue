@@ -262,4 +262,9 @@ hr {
   align-items: center;
   justify-content: center;
 }
+
+.button-submit {
+  margin-bottom: 0;
+}
+
 </style>
