@@ -42,4 +42,3 @@ root:
       singles2Set2Away: required number
       singles2Set3Home: required number
       singles2Set3Away: required number
-      matchResult: required string

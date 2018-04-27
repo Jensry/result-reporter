@@ -105,12 +105,6 @@
                 v-model="singles2Result">
             </game-result>
 
-            <hr />
-
-            <div class="title is-4">Matchresultat</div>
-            <b-input type="tel" name="matchresult" placeholder="Ange totalt resultat" v-model="matchresult">
-            </b-input>
-
             <button type="submit" class="button is-medium is-primary button-submit">Skicka in</button>
 
             <confirm-modal 
@@ -170,7 +164,6 @@ export default {
       singlesplayer2home: "",
       singlesplayer2away: "",
       singles2Result: {},
-      matchresult: "",
       showConfirm: false
     };
   },
@@ -209,8 +202,7 @@ export default {
         singles2Set2Home: Number(this.singles2Result.set2.home),
         singles2Set2Away: Number(this.singles2Result.set2.away),
         singles2Set3Home: Number(this.singles2Result.set3.home),
-        singles2Set3Away: Number(this.singles2Result.set3.away),
-        matchResult: this.matchresult
+        singles2Set3Away: Number(this.singles2Result.set3.away)
       }, () => this.$router.push({ name: 'Confirmation'}));
     },
     confirm() {

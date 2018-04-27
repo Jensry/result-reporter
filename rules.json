@@ -188,14 +188,8 @@
             ".validate": false
           }
         },
-        "matchResult": {
-          ".validate": "newData.isString()",
-          "$other": {
-            ".validate": false
-          }
-        },
         ".write": "data.val() == null && newData.exists()",
-        ".validate": "newData.hasChildren(['timestamp', 'division', 'matchId', 'matchNumber', 'doublesPlayerHome1', 'doublesPlayerHome2', 'doublesPlayerAway1', 'doublesPlayerAway2', 'doublesSet1Home', 'doublesSet1Away', 'doublesSet2Home', 'doublesSet2Away', 'doublesSet3Home', 'doublesSet3Away', 'singlesPlayer1Home', 'singlesPlayer1Away', 'singles1Set1Home', 'singles1Set1Away', 'singles1Set2Home', 'singles1Set2Away', 'singles1Set3Home', 'singles1Set3Away', 'singlesPlayer2Home', 'singlesPlayer2Away', 'singles2Set1Home', 'singles2Set1Away', 'singles2Set2Home', 'singles2Set2Away', 'singles2Set3Home', 'singles2Set3Away', 'matchResult'])",
+        ".validate": "newData.hasChildren(['timestamp', 'division', 'matchId', 'matchNumber', 'doublesPlayerHome1', 'doublesPlayerHome2', 'doublesPlayerAway1', 'doublesPlayerAway2', 'doublesSet1Home', 'doublesSet1Away', 'doublesSet2Home', 'doublesSet2Away', 'doublesSet3Home', 'doublesSet3Away', 'singlesPlayer1Home', 'singlesPlayer1Away', 'singles1Set1Home', 'singles1Set1Away', 'singles1Set2Home', 'singles1Set2Away', 'singles1Set3Home', 'singles1Set3Away', 'singlesPlayer2Home', 'singlesPlayer2Away', 'singles2Set1Home', 'singles2Set1Away', 'singles2Set2Home', 'singles2Set2Away', 'singles2Set3Home', 'singles2Set3Away'])",
         "$other": {
           ".validate": false
         }
