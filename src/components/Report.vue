@@ -107,16 +107,18 @@
 
             <button type="submit" class="button is-medium is-primary button-submit">Skicka in</button>
 
-            <confirm-modal 
-                v-if="showConfirm" 
-                @cancel="cancel"
-                @ok="postResult"
-                :homeTeam="selectedmatch.hometeam"
-                :awayTeam="selectedmatch.awayteam"
-                :doublesResult="doublesResult"
-                :singlesOneResult="singles1Result"
-                :singlesTwoResult="singles2Result"
-            ></confirm-modal>
+            <transition name="fade">
+              <confirm-modal 
+                  v-if="showConfirm" 
+                  @cancel="cancel"
+                  @ok="postResult"
+                  :homeTeam="selectedmatch.hometeam"
+                  :awayTeam="selectedmatch.awayteam"
+                  :doublesResult="doublesResult"
+                  :singlesOneResult="singles1Result"
+                  :singlesTwoResult="singles2Result"
+              ></confirm-modal>
+            </transition>
         </div>
     </form>
     </section>
@@ -256,7 +258,15 @@ hr {
 }
 
 .button-submit {
+  margin-top: 15px;
   margin-bottom: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
 </style>
