@@ -30,5 +30,13 @@ npm run lint
 ## To generate rules
 ```
 npm install -g fireplan
-fireplan rules.yaml
+fireplan database.rules.yaml
+```
+
+## To deploy to firebase
+```
+npm install -g firebase-tools
+npm run build
+firebase login
+firebase deploy
 ```
