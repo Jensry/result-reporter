@@ -1,9 +1,12 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma/sass/utilities/functions";
+//@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 $primary: #00aade;
 $primary-invert: findColorInvert($primary);
 
 $modal-content-width: 500px;
+
+//$family-primary: sans-serif;
 
 @import "~bulma";
