@@ -125,7 +125,8 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/database";
 import PlayerNameInput from "@/components/PlayerNameInput";
 import GameResult from "@/components/GameResult";
 import ConfirmModal from "@/components/ConfirmModal";
@@ -142,9 +143,11 @@ var config = {
 let app = firebase.initializeApp(config);
 let db = app.database();
 
-firebase.database.enableLogging(function(message) {
-  console.log("[FIREBASE]", message);
-});
+if (process.env.NODE_ENV === "development") {
+  firebase.database.enableLogging(function(message) {
+    console.log("[FIREBASE]", message);
+  });
+}
 
 var divisionsRef = db.ref("divisions");
 var resultsRef = db.ref("results");
