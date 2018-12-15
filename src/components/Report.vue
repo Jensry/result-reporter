@@ -128,7 +128,7 @@
 import firebase from "firebase";
 import PlayerNameInput from "@/components/PlayerNameInput";
 import GameResult from "@/components/GameResult";
-import ConfirmModal from '@/components/ConfirmModal';
+import ConfirmModal from "@/components/ConfirmModal";
 
 // Initialize Firebase
 var config = {
@@ -174,44 +174,47 @@ export default {
   },
   methods: {
     postResult() {
-      resultsRef.push({
-        timestamp: firebase.database.ServerValue.TIMESTAMP,
-        division: this.selecteddiv.divid,
-        matchId: this.selectedmatch.matchid,
-        matchNumber: this.selectedmatch.matchnumber,
-        doublesPlayerHome1: this.doublesplayer1home,
-        doublesPlayerHome2: this.doublesplayer2home,
-        doublesPlayerAway1: this.doublesplayer1away,
-        doublesPlayerAway2: this.doublesplayer2away,
-        doublesSet1Home: Number(this.doublesResult.set1.home),
-        doublesSet1Away: Number(this.doublesResult.set1.away),
-        doublesSet2Home: Number(this.doublesResult.set2.home),
-        doublesSet2Away: Number(this.doublesResult.set2.away),
-        doublesSet3Home: Number(this.doublesResult.set3.home),
-        doublesSet3Away: Number(this.doublesResult.set3.away),
-        singlesPlayer1Home: this.singlesplayer1home,
-        singlesPlayer1Away: this.singlesplayer1away,
-        singles1Set1Home: Number(this.singles1Result.set1.home),
-        singles1Set1Away: Number(this.singles1Result.set1.away),
-        singles1Set2Home: Number(this.singles1Result.set2.home),
-        singles1Set2Away: Number(this.singles1Result.set2.away),
-        singles1Set3Home: Number(this.singles1Result.set3.home),
-        singles1Set3Away: Number(this.singles1Result.set3.away),
-        singlesPlayer2Home: this.singlesplayer2home,
-        singlesPlayer2Away: this.singlesplayer2away,
-        singles2Set1Home: Number(this.singles2Result.set1.home),
-        singles2Set1Away: Number(this.singles2Result.set1.away),
-        singles2Set2Home: Number(this.singles2Result.set2.home),
-        singles2Set2Away: Number(this.singles2Result.set2.away),
-        singles2Set3Home: Number(this.singles2Result.set3.home),
-        singles2Set3Away: Number(this.singles2Result.set3.away)
-      }, () => this.$router.push({ name: 'Confirmation'}));
+      resultsRef.push(
+        {
+          timestamp: firebase.database.ServerValue.TIMESTAMP,
+          division: this.selecteddiv.divid,
+          matchId: this.selectedmatch.matchid,
+          matchNumber: this.selectedmatch.matchnumber,
+          doublesPlayerHome1: this.doublesplayer1home,
+          doublesPlayerHome2: this.doublesplayer2home,
+          doublesPlayerAway1: this.doublesplayer1away,
+          doublesPlayerAway2: this.doublesplayer2away,
+          doublesSet1Home: Number(this.doublesResult.set1.home),
+          doublesSet1Away: Number(this.doublesResult.set1.away),
+          doublesSet2Home: Number(this.doublesResult.set2.home),
+          doublesSet2Away: Number(this.doublesResult.set2.away),
+          doublesSet3Home: Number(this.doublesResult.set3.home),
+          doublesSet3Away: Number(this.doublesResult.set3.away),
+          singlesPlayer1Home: this.singlesplayer1home,
+          singlesPlayer1Away: this.singlesplayer1away,
+          singles1Set1Home: Number(this.singles1Result.set1.home),
+          singles1Set1Away: Number(this.singles1Result.set1.away),
+          singles1Set2Home: Number(this.singles1Result.set2.home),
+          singles1Set2Away: Number(this.singles1Result.set2.away),
+          singles1Set3Home: Number(this.singles1Result.set3.home),
+          singles1Set3Away: Number(this.singles1Result.set3.away),
+          singlesPlayer2Home: this.singlesplayer2home,
+          singlesPlayer2Away: this.singlesplayer2away,
+          singles2Set1Home: Number(this.singles2Result.set1.home),
+          singles2Set1Away: Number(this.singles2Result.set1.away),
+          singles2Set2Home: Number(this.singles2Result.set2.home),
+          singles2Set2Away: Number(this.singles2Result.set2.away),
+          singles2Set3Home: Number(this.singles2Result.set3.home),
+          singles2Set3Away: Number(this.singles2Result.set3.away)
+        },
+        () => this.$router.push({ name: "Confirmation" })
+      );
     },
     confirm() {
-        this.showConfirm = true;
+      this.showConfirm = true;
     },
     cancel() {
-        this.showConfirm = false;
+      this.showConfirm = false;
     }
   },
   components: {
@@ -262,11 +265,12 @@ hr {
   margin-bottom: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
-
 </style>

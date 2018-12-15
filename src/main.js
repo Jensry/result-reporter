@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import App from './App'
-import router from './router'
-import VueFire from 'vuefire'
-import Buefy from 'buefy'
+import Vue from "vue";
+import App from "./App";
+import router from "./router";
+import VueFire from "vuefire";
+import Buefy from "buefy";
 
 Vue.config.productionTip = false;
 
-Vue.use(VueFire)
-Vue.use(Buefy)
+Vue.use(VueFire);
+Vue.use(Buefy);
 
 new Vue({
   router,

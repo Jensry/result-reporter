@@ -12,22 +12,20 @@
 </template>
 
 <script>
-
 export default {
-  name: 'PlayerNameInput',
+  name: "PlayerNameInput",
   props: {
-      label: String,
-      id: String,
-      players: Array
+    label: String,
+    id: String,
+    players: Array
   },
   methods: {
     onInput(inputValue) {
-        this.$emit('input', inputValue);
+      this.$emit("input", inputValue);
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>

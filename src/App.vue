@@ -9,14 +9,14 @@
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App"
+};
 </script>
 
 <style lang="scss">
 @import "assets/bkc-styles";
 
-html{
+html {
   height: 100%;
 }
 body {
@@ -41,7 +41,6 @@ body {
 }
 
 .section {
-  padding-top: 1.5em
+  padding-top: 1.5em;
 }
-
 </style>

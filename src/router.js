@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Report from '@/components/Report'
-import Confirmation from '@/components/Confirmation'
+import Vue from "vue";
+import Router from "vue-router";
+import Report from "@/components/Report";
+import Confirmation from "@/components/Confirmation";
 
 Vue.use(Router);
 
@@ -10,13 +10,13 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'Report',
+      path: "/",
+      name: "Report",
       component: Report
     },
     {
-      path: '/confirmation',
-      name: 'Confirmation',
+      path: "/confirmation",
+      name: "Confirmation",
       component: Confirmation
     }
   ]

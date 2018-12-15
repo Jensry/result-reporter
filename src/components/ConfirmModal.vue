@@ -59,7 +59,11 @@ export default {
   },
   methods: {
     calculateGame(game) {
-      return this.calculateSet(game.set1) + this.calculateSet(game.set2) + this.calculateSet(game.set3);
+      return (
+        this.calculateSet(game.set1) +
+        this.calculateSet(game.set2) +
+        this.calculateSet(game.set3)
+      );
     },
     calculateSet(set) {
       if (set.home > set.away) {

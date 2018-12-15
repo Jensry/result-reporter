@@ -34,25 +34,25 @@ export default {
   data() {
     return {
       result: {
-        set1: {home: '', away: ''},
-        set2: {home: '', away: ''},
-        set3: {home: '', away: ''},
-      },
+        set1: { home: "", away: "" },
+        set2: { home: "", away: "" },
+        set3: { home: "", away: "" }
+      }
     };
   },
   methods: {
     onInput(key, value) {
       this.result[key] = value;
-      this.$emit('input', this.result);
-    },
+      this.$emit("input", this.result);
+    }
   },
-  components: {SetResult}
-}
+  components: { SetResult }
+};
 </script>
 
 <style lang="scss" scoped>
-  .section {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+.section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 </style>

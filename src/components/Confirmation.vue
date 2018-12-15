@@ -7,11 +7,9 @@
 <script>
 export default {
   name: "Confirmation",
-  methods: {
-  }
+  methods: {}
 };
 </script>
 
 <style lang="scss">
-
 </style>

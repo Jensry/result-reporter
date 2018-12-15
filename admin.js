@@ -17,38 +17,41 @@ const matchesRef = db.ref("matches");
 setMatches();
 setTeams();
 
-
 function addMatchIdToEachMatch() {
-    divisionsRef.once("value", function(snapshot) {
-        let updatedDivisions = addMatchId(snapshot.val())
-        divisionsRef.set(updatedDivisions, catchAnswer);
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-        process.exit(1);
-    });
-
-    function addMatchId(divisions) {
-        for (let matchid in divisions.div3.matches) {
-            divisions.div3.matches[matchid]['matchid'] = matchid;
-        }
-        //console.log(JSON.stringify(divisions, null, 2));
-        return divisions;
+  divisionsRef.once(
+    "value",
+    function(snapshot) {
+      let updatedDivisions = addMatchId(snapshot.val());
+      divisionsRef.set(updatedDivisions, catchAnswer);
+    },
+    function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+      process.exit(1);
     }
+  );
+
+  function addMatchId(divisions) {
+    for (let matchid in divisions.div3.matches) {
+      divisions.div3.matches[matchid]["matchid"] = matchid;
+    }
+    //console.log(JSON.stringify(divisions, null, 2));
+    return divisions;
+  }
 }
 
 function setTeams() {
-    teamsRef.set(teamsFile.teams, catchAnswer);
+  teamsRef.set(teamsFile.teams, catchAnswer);
 }
 
 function setMatches() {
-    matchesRef.set(matchesFile.matches, catchAnswer);
+  matchesRef.set(matchesFile.matches, catchAnswer);
 }
 
 function catchAnswer(error) {
-    if (error) {
-        console.log("Data could not be saved." + error);
-    } else {
-        console.log("Data saved successfully.");
-    }
-    process.exit();
+  if (error) {
+    console.log("Data could not be saved." + error);
+  } else {
+    console.log("Data saved successfully.");
+  }
+  process.exit();
 }

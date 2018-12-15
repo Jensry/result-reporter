@@ -37,11 +37,11 @@
 
 <script>
 export default {
-  name: 'GameResultInput',
+  name: "GameResultInput",
   props: {
     heading: {
       type: String,
-      default: () => '',
+      default: () => ""
     },
     required: {
       type: Boolean
@@ -49,23 +49,23 @@ export default {
   },
   data() {
     return {
-      home: '',
-      away: '',
+      home: "",
+      away: ""
     };
   },
   methods: {
     onInput() {
-      this.$emit('input', {home: this.home, away: this.away});
-    },
-  },
-}
+      this.$emit("input", { home: this.home, away: this.away });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .span {
-    margin-left: 8px;
-    margin-right: 8px;
-    position: relative;
-    top: 4px;
-  }
+.span {
+  margin-left: 8px;
+  margin-right: 8px;
+  position: relative;
+  top: 4px;
+}
 </style>
