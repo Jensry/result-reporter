@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "motionsserien-3a987"
+    "default": "motionsserien-3a987",
+    "bkc": "bkc-motionsserien"
   }
 }
