@@ -186,6 +186,11 @@ export default {
   firebase: {
     divisions: divisionsRef
   },
+  watch: {
+    selecteddiv() {
+      this.selectedmatch = "";
+    }
+  },
   methods: {
     postResult() {
       resultsRef.push(
