@@ -7,7 +7,7 @@
             <option
                 v-for="division in divisions"
                 :value="division"
-                :key="division.id">
+                :key="division.divid">
                 {{ division.divname }}
             </option>
         </b-select>
@@ -20,7 +20,7 @@
                 <option
                     v-for="match in selecteddiv.matches"
                     :value="match"
-                    :key="match.id">
+                    :key="match.matchid">
                     {{ match.matchnumber }}: {{ selecteddiv.teams[match.hometeam].name }} - {{ selecteddiv.teams[match.awayteam].name }}
                 </option>
             </b-select>
@@ -132,7 +132,7 @@ import GameResult from "@/components/GameResult";
 import ConfirmModal from "@/components/ConfirmModal";
 
 // Initialize Firebase
-var config = {
+let config = {
   apiKey: "AIzaSyBryZbERP8kfcf6NPbEPzyEk5ahWzkbQtE",
   authDomain: "motionsserien-3a987.firebaseapp.com",
   databaseURL: "https://motionsserien-3a987.firebaseio.com",
@@ -140,6 +140,17 @@ var config = {
   storageBucket: "motionsserien-3a987.appspot.com",
   messagingSenderId: "707867925001"
 };
+if (process.env.VUE_APP_DEPLOY_TARGET === "bkc") {
+  config = {
+    apiKey: "AIzaSyBD5x2740Z5MHwfCBwdIm5AWHPcV3fxkSQ",
+    authDomain: "bkc-motionsserien.firebaseapp.com",
+    databaseURL: "https://bkc-motionsserien.firebaseio.com",
+    projectId: "bkc-motionsserien",
+    storageBucket: "bkc-motionsserien.appspot.com",
+    messagingSenderId: "192628513776"
+  };
+}
+
 let app = firebase.initializeApp(config);
 let db = app.database();
 
@@ -210,7 +221,13 @@ export default {
           singles2Set3Home: Number(this.singles2Result.set3.home),
           singles2Set3Away: Number(this.singles2Result.set3.away)
         },
-        () => this.$router.push({ name: "Confirmation" })
+        error => {
+          if (error) {
+            console.log(error);
+          } else {
+            this.$router.push({ name: "Confirmation" });
+          }
+        }
       );
     },
     confirm() {

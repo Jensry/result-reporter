@@ -40,3 +40,10 @@ npm run build
 firebase login
 firebase deploy
 ```
+
+## To deploy to bkc firebase
+```
+npm run bkc-build
+firebase use bkc
+firebase deploy
+```
