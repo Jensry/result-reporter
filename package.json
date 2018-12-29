@@ -6,6 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "bkc-build": "vue-cli-service build --mode bkc",
+    "bkc-deploy": "vue-cli-service build --mode bkc && firebase use bkc && firebase deploy",
+    "deploy": "vue-cli-service build && firebase use default && firebase deploy",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
