@@ -117,6 +117,13 @@
             :singlesTwoResult="singles2Result"
           ></confirm-modal>
         </transition>
+
+        <transition name="fade">
+          <error-modal
+            v-if="showError"
+            @ok="showError = false"
+          ></error-modal>
+        </transition>
       </div>
     </form>
   </section>
@@ -128,6 +135,7 @@ import "firebase/database";
 import PlayerNameInput from "@/components/PlayerNameInput";
 import GameResult from "@/components/GameResult";
 import ConfirmModal from "@/components/ConfirmModal";
+import ErrorModal from "@/components/ErrorModal";
 
 // Initialize Firebase
 let config = {
@@ -179,6 +187,7 @@ export default {
       singlesplayer2away: "",
       singles2Result: {},
       showConfirm: false,
+      showError: false,
       isLoading: true
     };
   },
@@ -233,6 +242,8 @@ export default {
         error => {
           if (error) {
             console.log(error);
+            this.showConfirm = false;
+            this.showError = true;
           } else {
             this.$router.push({ name: "Confirmation" });
           }
@@ -249,7 +260,8 @@ export default {
   components: {
     PlayerNameInput,
     GameResult,
-    ConfirmModal
+    ConfirmModal,
+    ErrorModal
   }
 };
 </script>
