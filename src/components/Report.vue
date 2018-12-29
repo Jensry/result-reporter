@@ -1,127 +1,125 @@
 <template>
-    <section class="section">
+  <section class="section">
     <form id="form" @submit.prevent="confirm">
-        <h1 class="title">Division</h1>
-        <b-select v-model="selecteddiv" class="select-top" size="is-medium" expanded>
-            <option value="">Välj division...</option>
-            <option
-                v-for="division in divisions"
-                :value="division"
-                :key="division.divid">
-                {{ division.divname }}
-            </option>
+      <h1 class="title">Division</h1>
+      <div 
+        class="select select-top is-medium is-fullwidth"
+        :class="{ 'is-loading': isLoading }"
+      >
+        <select v-model="selecteddiv">
+          <option value>Välj division...</option>
+          <option
+            v-for="division in divisions"
+            :value="division"
+            :key="division.divid"
+          >{{ division.divname }}</option>
+        </select>
+      </div>
+
+      <div v-if="selecteddiv !== ''">
+        <hr class="hr-first">
+        <h1 class="title">Match</h1>
+        <b-select v-model="selectedmatch" class="select-top" expanded>
+          <option value>Välj match...</option>
+          <option
+            v-for="match in selecteddiv.matches"
+            :value="match"
+            :key="match.matchid"
+          >{{ match.matchnumber }}: {{ selecteddiv.teams[match.hometeam].name }} - {{ selecteddiv.teams[match.awayteam].name }}
+          </option>
         </b-select>
+      </div>
 
-        <div v-if="selecteddiv !== ''">
-            <hr class="hr-first" />
-            <h1 class="title">Match</h1>
-            <b-select v-model="selectedmatch" class="select-top" expanded>
-                <option value="">Välj match...</option>
-                <option
-                    v-for="match in selecteddiv.matches"
-                    :value="match"
-                    :key="match.matchid">
-                    {{ match.matchnumber }}: {{ selecteddiv.teams[match.hometeam].name }} - {{ selecteddiv.teams[match.awayteam].name }}
-                </option>
-            </b-select>
-        </div>
+      <div v-if="selectedmatch !== ''">
+        <hr class="hr-first">
 
-        <div v-if="selectedmatch !== ''">
-            <hr class="hr-first" />
+        <div class="title is-4">Dubbel</div>
 
-            <div class="title is-4">Dubbel</div>
+        <player-name-input
+          v-model="doublesplayer1home"
+          v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+          label="Hemmaspelare 1"
+          id="doublesplayer1home"
+        ></player-name-input>
 
-            <player-name-input 
-                v-model="doublesplayer1home" 
-                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
-                label="Hemmaspelare 1"
-                id="doublesplayer1home"
-            ></player-name-input>
+        <player-name-input
+          v-model="doublesplayer2home"
+          v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+          label="Hemmaspelare 2"
+          id="doublesplayer2home"
+        ></player-name-input>
 
-            <player-name-input 
-                v-model="doublesplayer2home" 
-                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
-                label="Hemmaspelare 2"
-                id="doublesplayer2home"
-            ></player-name-input>
+        <player-name-input
+          v-model="doublesplayer1away"
+          v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+          label="Bortaspelare 1"
+          id="doublesplayer1away"
+        ></player-name-input>
 
-            <player-name-input 
-                v-model="doublesplayer1away" 
-                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
-                label="Bortaspelare 1"
-                id="doublesplayer1away"
-            ></player-name-input>
+        <player-name-input
+          v-model="doublesplayer2away"
+          v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+          label="Bortaspelare 2"
+          id="doublesplayer2away"
+        ></player-name-input>
 
-            <player-name-input 
-                v-model="doublesplayer2away" 
-                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
-                label="Bortaspelare 2"
-                id="doublesplayer2away"
-            ></player-name-input>
+        <game-result v-model="doublesResult"></game-result>
 
-            <game-result
-                v-model="doublesResult">
-            </game-result>
+        <hr>
 
-            <hr />
+        <div class="title is-4">Singel 1</div>
+        <player-name-input
+          v-model="singlesplayer1home"
+          v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+          label="Hemmaspelare"
+          id="singlesplayer1home"
+        ></player-name-input>
 
-            <div class="title is-4">Singel 1</div>
-            <player-name-input 
-                v-model="singlesplayer1home" 
-                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
-                label="Hemmaspelare"
-                id="singlesplayer1home"
-            ></player-name-input>
+        <player-name-input
+          v-model="singlesplayer1away"
+          v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+          label="Bortaspelare"
+          id="singlesplayer1away"
+        ></player-name-input>
 
-            <player-name-input 
-                v-model="singlesplayer1away" 
-                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
-                label="Bortaspelare"
-                id="singlesplayer1away"
-            ></player-name-input>
+        <game-result v-model="singles1Result"></game-result>
 
-            <game-result
-                v-model="singles1Result">
-            </game-result>
+        <hr>
 
-            <hr />
+        <div class="title is-4">Singel 2</div>
+        <player-name-input
+          v-model="singlesplayer2home"
+          v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
+          label="Hemmaspelare"
+          id="singlesplayer2home"
+        ></player-name-input>
 
-            <div class="title is-4">Singel 2</div>
-            <player-name-input 
-                v-model="singlesplayer2home" 
-                v-bind:players="selecteddiv.teams[selectedmatch.hometeam].members"
-                label="Hemmaspelare"
-                id="singlesplayer2home"
-            ></player-name-input>
+        <player-name-input
+          v-model="singlesplayer2away"
+          v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
+          label="Bortaspelare"
+          id="singlesplayer2away"
+        ></player-name-input>
 
-            <player-name-input 
-                v-model="singlesplayer2away" 
-                v-bind:players="selecteddiv.teams[selectedmatch.awayteam].members"
-                label="Bortaspelare"
-                id="singlesplayer2away"
-            ></player-name-input>
+        <game-result v-model="singles2Result"></game-result>
 
-            <game-result
-                v-model="singles2Result">
-            </game-result>
+        <button type="submit" class="button is-medium is-primary button-submit">Skicka in</button>
 
-            <button type="submit" class="button is-medium is-primary button-submit">Skicka in</button>
-
-            <transition name="fade">
-              <confirm-modal 
-                  v-if="showConfirm" 
-                  @cancel="cancel"
-                  @ok="postResult"
-                  :homeTeam="selectedmatch.hometeam"
-                  :awayTeam="selectedmatch.awayteam"
-                  :doublesResult="doublesResult"
-                  :singlesOneResult="singles1Result"
-                  :singlesTwoResult="singles2Result"
-              ></confirm-modal>
-            </transition>
-        </div>
+        <transition name="fade">
+          <confirm-modal
+            v-if="showConfirm"
+            @cancel="cancel"
+            @ok="postResult"
+            :homeTeam="selectedmatch.hometeam"
+            :awayTeam="selectedmatch.awayteam"
+            :doublesResult="doublesResult"
+            :singlesOneResult="singles1Result"
+            :singlesTwoResult="singles2Result"
+          ></confirm-modal>
+        </transition>
+      </div>
     </form>
-    </section>
+  </section>
 </template>
 
 <script>
@@ -180,11 +178,17 @@ export default {
       singlesplayer2home: "",
       singlesplayer2away: "",
       singles2Result: {},
-      showConfirm: false
+      showConfirm: false,
+      isLoading: true
     };
   },
   firebase: {
-    divisions: divisionsRef
+    divisions: {
+      source: divisionsRef,
+      readyCallback() {
+        this.isLoading = false;
+      }
+    }
   },
   watch: {
     selecteddiv() {
