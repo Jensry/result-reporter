@@ -36,14 +36,11 @@ fireplan database.rules.yaml
 ## To deploy to firebase
 ```
 npm install -g firebase-tools
-npm run build
 firebase login
-firebase deploy
+npm run deploy
 ```
 
 ## To deploy to bkc firebase
 ```
-npm run bkc-build
-firebase use bkc
-firebase deploy
+npm run bkc-deploy
 ```
