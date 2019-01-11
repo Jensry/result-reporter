@@ -66,9 +66,9 @@ export default {
       );
     },
     calculateSet(set) {
-      if (set.home > set.away) {
+      if (Number(set.home) > Number(set.away)) {
         return 1;
-      } else if (set.home < set.away) {
+      } else if (Number(set.home) < Number(set.away)) {
         return -1;
       } else {
         return 0;
