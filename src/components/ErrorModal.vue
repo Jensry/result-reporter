@@ -20,7 +20,7 @@
 export default {
   name: "ConfirmModal",
   props: {
-    error: String,
+    error: String
   }
 };
 </script>
