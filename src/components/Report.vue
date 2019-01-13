@@ -137,38 +137,6 @@ import GameResult from "@/components/GameResult";
 import ConfirmModal from "@/components/ConfirmModal";
 import ErrorModal from "@/components/ErrorModal";
 
-// Initialize Firebase
-let config = {
-  apiKey: "AIzaSyBryZbERP8kfcf6NPbEPzyEk5ahWzkbQtE",
-  authDomain: "motionsserien-3a987.firebaseapp.com",
-  databaseURL: "https://motionsserien-3a987.firebaseio.com",
-  projectId: "motionsserien-3a987",
-  storageBucket: "motionsserien-3a987.appspot.com",
-  messagingSenderId: "707867925001"
-};
-if (process.env.VUE_APP_DEPLOY_TARGET === "bkc") {
-  config = {
-    apiKey: "AIzaSyBD5x2740Z5MHwfCBwdIm5AWHPcV3fxkSQ",
-    authDomain: "bkc-motionsserien.firebaseapp.com",
-    databaseURL: "https://bkc-motionsserien.firebaseio.com",
-    projectId: "bkc-motionsserien",
-    storageBucket: "bkc-motionsserien.appspot.com",
-    messagingSenderId: "192628513776"
-  };
-}
-
-let app = firebase.initializeApp(config);
-let db = app.database();
-
-if (process.env.NODE_ENV === "development") {
-  firebase.database.enableLogging(function(message) {
-    console.log("[FIREBASE]", message);
-  });
-}
-
-var divisionsRef = db.ref("divisions");
-var resultsRef = db.ref("results");
-
 export default {
   name: "Report",
   data: function() {
@@ -191,13 +159,15 @@ export default {
       isLoading: true
     };
   },
-  firebase: {
-    divisions: {
-      source: divisionsRef,
-      readyCallback() {
-        this.isLoading = false;
+  firebase() {
+    return {
+      divisions: {
+        source: firebase.database().ref("divisions"),
+        readyCallback() {
+          this.isLoading = false;
+        }
       }
-    }
+    };
   },
   watch: {
     selecteddiv() {
@@ -206,6 +176,7 @@ export default {
   },
   methods: {
     postResult() {
+      var resultsRef = firebase.database().ref("results");
       resultsRef.push(
         {
           timestamp: firebase.database.ServerValue.TIMESTAMP,
