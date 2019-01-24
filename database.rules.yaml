@@ -12,7 +12,7 @@ root:
     .read: true
     $result_id:
       .write: data == null && newData.exists()
-      timestamp: required newData == now
+      timestamp: required indexed newData == now
       division: required root.divisions[newData].exists()
       matchId: required root.divisions[newData.parent().division].matches[newData].exists()
       matchNumber: required number
