@@ -1,8 +1,8 @@
 functions:
-  - homeTeam(matchId): root.matches[matchId].hometeam
-  - awayTeam(matchId): root.matches[matchId].awayteam
-  - validHomeName(matchId, name): root.teams[homeTeam(matchId)].members[name].exists()
-  - validAwayName(matchId, name): root.teams[awayTeam(matchId)].members[name].exists()
+  - homeTeam(divId, matchId): root.divisions[divId].matches[matchId].hometeam
+  - awayTeam(divId, matchId): root.divisions[divId].matches[matchId].awayteam
+  - validHomeName(divId, matchId, name): root.divisions[divId].teams[homeTeam(divId, matchId)].members[name].exists()
+  - validAwayName(divId, matchId, name): root.divisions[divId].teams[awayTeam(divId, matchId)].members[name].exists()
   - matchId: newData.parent().matchId
 
 root:
@@ -16,26 +16,26 @@ root:
       division: required root.divisions[newData].exists()
       matchId: required root.divisions[newData.parent().division].matches[newData].exists()
       matchNumber: required number
-      doublesPlayerHome1: required string
-      doublesPlayerHome2: required string
-      doublesPlayerAway1: required string
-      doublesPlayerAway2: required string
+      doublesPlayerHome1: required string && newData.val().length > 0
+      doublesPlayerHome2: required string && newData.val().length > 0
+      doublesPlayerAway1: required string && newData.val().length > 0
+      doublesPlayerAway2: required string && newData.val().length > 0
       doublesSet1Home: required number
       doublesSet1Away: required number
       doublesSet2Home: required number
       doublesSet2Away: required number
       doublesSet3Home: required number
       doublesSet3Away: required number
-      singlesPlayer1Home: required string
-      singlesPlayer1Away: required string
+      singlesPlayer1Home: required string && newData.val().length > 0
+      singlesPlayer1Away: required string && newData.val().length > 0
       singles1Set1Home: required number
       singles1Set1Away: required number
       singles1Set2Home: required number
       singles1Set2Away: required number
       singles1Set3Home: required number
       singles1Set3Away: required number
-      singlesPlayer2Home: required string
-      singlesPlayer2Away: required string
+      singlesPlayer2Home: required string && newData.val().length > 0
+      singlesPlayer2Away: required string && newData.val().length > 0
       singles2Set1Home: required number
       singles2Set1Away: required number
       singles2Set2Home: required number

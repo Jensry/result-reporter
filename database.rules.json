@@ -33,25 +33,25 @@
           }
         },
         "doublesPlayerHome1": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
         },
         "doublesPlayerHome2": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
         },
         "doublesPlayerAway1": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
         },
         "doublesPlayerAway2": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
@@ -93,13 +93,13 @@
           }
         },
         "singlesPlayer1Home": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
         },
         "singlesPlayer1Away": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
@@ -141,13 +141,13 @@
           }
         },
         "singlesPlayer2Home": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
         },
         "singlesPlayer2Away": {
-          ".validate": "newData.isString()",
+          ".validate": "newData.isString() && newData.val().length > 0",
           "$other": {
             ".validate": false
           }
@@ -194,7 +194,10 @@
           ".validate": false
         }
       },
-      ".read": "true"
+      ".read": "true",
+      ".indexOn": [
+        "timestamp"
+      ]
     },
     "$other": {
       ".validate": false
