@@ -156,7 +156,8 @@ export default {
       singles2Result: {},
       showConfirm: false,
       showError: false,
-      isLoading: true
+      isLoading: true,
+      isPosting: false
     };
   },
   firebase() {
@@ -176,6 +177,10 @@ export default {
   },
   methods: {
     postResult() {
+      if (this.isPosting) {
+        return;
+      }
+      this.isPosting = true;
       var resultsRef = firebase.database().ref("results");
       resultsRef.push(
         {
@@ -215,7 +220,10 @@ export default {
             console.log(error);
             this.showConfirm = false;
             this.showError = true;
+            this.isPosting = false;
           } else {
+            this.showConfirm = false;
+            this.isPosting = false;
             this.$router.push({ name: "Confirmation" });
           }
         }
