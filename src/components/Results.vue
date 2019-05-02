@@ -4,31 +4,16 @@
     <table class="table is-fullwidth">
       <thead>
         <tr>
-          <th>
-            Rapporterat
-          </th>
-          <th>
-            Division
-          </th>
-          <th>
-            Matchnummer
-          </th>
-          <th>
-            Hemmalag
-          </th>
-          <th>
-            Bortalag
-          </th>
-          <th>
-            Resultat
-          </th>
+          <th>Rapporterat</th>
+          <th>Division</th>
+          <th>Matchnummer</th>
+          <th>Hemmalag</th>
+          <th>Bortalag</th>
+          <th>Resultat</th>
         </tr>
       </thead>
       <tbody>
-        <tr 
-          v-for="result in results"
-            :key="result['.key']"
-        >
+        <tr v-for="result in results" :key="result['.key']">
           <td>{{ toDateString(result.timestamp) }}</td>
           <td>{{ divisionName(result) }}</td>
           <td>{{ result.matchNumber }}</td>
@@ -44,7 +29,7 @@
 <script>
 import firebase from "firebase/app";
 import "firebase/database";
-import ResultService from "@/services/result-service.js"
+import ResultService from "@/services/result-service.js";
 
 export default {
   name: "Results",
@@ -74,16 +59,22 @@ export default {
     },
     divisionName(result) {
       if (this.divisions[result.division]) {
-        return this.divisions[result.division].divname
+        return this.divisions[result.division].divname;
       }
     },
     homeTeam(result) {
-      if (this.divisions[result.division]) {
+      if (
+        this.divisions[result.division] &&
+        this.divisions[result.division].matches[result.matchId]
+      ) {
         return this.divisions[result.division].matches[result.matchId].hometeam;
       }
     },
     awayTeam(result) {
-      if (this.divisions[result.division]) {
+      if (
+        this.divisions[result.division] &&
+        this.divisions[result.division].matches[result.matchId]
+      ) {
         return this.divisions[result.division].matches[result.matchId].awayteam;
       }
     },
