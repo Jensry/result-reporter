@@ -60,6 +60,10 @@ export default {
       new SetResult(matchResult.singles2Set2Home, matchResult.singles2Set2Away),
       new SetResult(matchResult.singles2Set3Home, matchResult.singles2Set3Away)
     );
-    return this.homeScore(doublesResult, singles1Result, singles2Result) + '-' + this.awayScore(doublesResult, singles1Result, singles2Result); 
+    return (
+      this.homeScore(doublesResult, singles1Result, singles2Result) +
+      "-" +
+      this.awayScore(doublesResult, singles1Result, singles2Result)
+    );
   }
 };
